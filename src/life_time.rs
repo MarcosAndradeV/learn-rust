@@ -1,9 +1,9 @@
-// TODO: modify only this function.
-fn copy_and_return<'a>(vector: &mut Vec<String>, value: &'a str) ->&'a str {
+fn copy_and_return<'a>(vector: &mut Vec<String>, value: &'a str) -> &'a str {
     vector.push(String::from(value));
-    return value
+    return value;
 }
-
+#[allow(dead_code)]
+#[test]
 pub fn test() {
     let name1 = "Joe";
     let name2 = "Chris";

@@ -22,6 +22,8 @@ fn build_full_name(person: &Person) -> String {
     full_name
 }
 #[allow(dead_code)]
+#[test]
+
 pub fn test() {
     let john = Person {
         first: String::from("James"),

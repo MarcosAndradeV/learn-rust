@@ -30,6 +30,8 @@ fn read_file_contents(path: PathBuf) -> Result<String, Error> {
 }
 
 #[allow(dead_code)]
+#[test]
+
 pub fn test() {
     if read_file_contents(PathBuf::from("src/main.rs")).is_ok() {
         println!("The program found the main file.");

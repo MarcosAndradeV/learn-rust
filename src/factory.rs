@@ -68,6 +68,7 @@ fn car_factory(order: i32, miles: u32) -> Car {
 }
 
 #[allow(dead_code)]
+#[test]
 pub fn test() {
     // Initialize a hash map for the car orders
     // - Key: Car order number, i32
