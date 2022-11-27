@@ -96,8 +96,6 @@ pub fn test() {
         // Call println! to show order details from the hash map
         car = car_factory(order, miles);
         orders.insert(order, car);
-        println!("Car order {}: {:?}", order, orders.get(&order));
-
         // Reset miles for order variety
         if miles == 2100 {
             miles = 0;

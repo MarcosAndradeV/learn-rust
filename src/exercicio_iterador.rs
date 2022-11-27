@@ -1,7 +1,7 @@
 struct Groups<T> {
     inner: Vec<T>,
 }
-
+#[allow(dead_code)]
 impl<T> Groups<T> {
     fn new(inner: Vec<T>) -> Self {
         Groups { inner }

@@ -33,10 +33,13 @@ fn read_file_contents(path: PathBuf) -> Result<String, Error> {
 #[test]
 
 pub fn test() {
-    if read_file_contents(PathBuf::from("src/main.rs")).is_ok() {
-        println!("The program found the main file.");
-    }
-    if read_file_contents(PathBuf::from("non-existent-file.txt")).is_err() {
-        println!("The program reported an error for the file that doesn't exist.");
-    }
+    assert!(
+        read_file_contents(PathBuf::from("src/main.rs")).is_ok(),
+        "The program found the main file."
+    );
+    let is_err = read_file_contents(PathBuf::from("non-existent-file.txt")).is_err();
+    assert!(
+        is_err,
+        "The program reported an error for the file that doesn't exist."
+    );
 }
