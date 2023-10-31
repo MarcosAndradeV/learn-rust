@@ -1,3 +1,4 @@
+
 #![allow(unused)]
 mod build_full_name;
 mod error_handler;
@@ -5,23 +6,23 @@ mod exercicio_iterador;
 mod factory;
 mod generic_characteristics_types;
 mod life_time;
+mod traits_my;
 
-// This is a comment. Line comments look like this...
-// and extend multiple lines like this.
+// Comment.
 
 /* Block comments
-/* can be nested. */ */
+*/
 
-/// Documentation comments look like this and support markdown notation.
+/// Documentation comments. Support markdown notation.
 /// # Examples
 ///
 ///
 /// let five = 5
 ///
 
-///////////////
-// 1. Basics //
-///////////////
+
+// Basics
+
 
 #[allow(dead_code)]
 // Functions
@@ -46,11 +47,6 @@ fn main() {
     let f: f64 = 1.3f64;
 
     // Type inference
-    // Most of the time, the Rust compiler can infer what type a variable is, so
-    // you don’t have to write an explicit type annotation.
-    // Throughout this tutorial, types are explicitly annotated in many places,
-    // but only for demonstrative purposes. Type inference can handle this for
-    // you most of the time.
     let implicit_x = 1;
     let implicit_f = 1.3;
 
@@ -83,7 +79,7 @@ fn main() {
     // The string slice is like a view `&[u8]` into `Vec<T>`.
     let s_slice: &str = &s;
 
-    println!("{} {}", s, s_slice); // hello world hello world
+    println!("{} {}", s, s_slice);
 
     // Vectors/arrays //
 
@@ -108,14 +104,14 @@ fn main() {
 
     // Destructuring `let`
     let (a, b, c) = x;
-    println!("{} {} {}", a, b, c); // 1 hello 3.4
+    println!("{} {} {}", a, b, c);
 
     // Indexing
-    println!("{}", x.1); // hello
+    println!("{}", x.1);
 
-    //////////////
-    // 2. Types //
-    //////////////
+
+    // Types
+
 
     // Struct
     struct Point {
@@ -212,9 +208,7 @@ fn main() {
     let fib: FunctionPointer = fibonacci;
     println!("Fib: {}", fib(4)); // 5
 
-    /////////////////////////
-    // 3. Pattern matching //
-    /////////////////////////
+    // Pattern matching
 
     let foo = OptionalI32::AnI32(1);
     match foo {
@@ -251,9 +245,7 @@ fn main() {
         } => println!("The second number is Nothing!"),
     }
 
-    /////////////////////
-    // 4. Control flow //
-    /////////////////////
+    // Control flow
 
     // `for` loops/iteration
     let array = [1, 2, 3];
@@ -293,9 +285,7 @@ fn main() {
         break;
     }
 
-    /////////////////////////////////
-    // 5. Memory safety & pointers //
-    /////////////////////////////////
+    // Memory safety & pointers
 
     // Owned pointer – only one thing can ‘own’ this pointer at a time
     // This means that when the `Box` leaves its scope, it can be automatically deallocated safely.
@@ -305,8 +295,7 @@ fn main() {
     let mut now_its_mine = mine;
     *now_its_mine += 2;
 
-    println!("{}", now_its_mine); // 7
-                                  // println!("{}", mine); // this would not compile because `now_its_mine` now owns the pointer
+    println!("{}", now_its_mine);
 
     // Reference – an immutable pointer that refers to other data
     // When a reference is taken to a value, we say that the value has been ‘borrowed’.
@@ -316,12 +305,11 @@ fn main() {
     var = 3;
     let ref_var: &i32 = &var;
 
-    println!("{}", var); // Unlike `mine`, `var` can still be used
+    println!("{}", var);
     println!("{}", *ref_var);
-    // var = 5; // this would not compile because `var` is borrowed
-    // *ref_var = 6; // this would not either, because `ref_var` is an immutable reference
-    ref_var; // no-op, but counts as a use and keeps the borrow active
-    var = 2; // ref_var is no longer used after the line above, so the borrow has ended
+
+    ref_var;
+    var = 2;
 
     // Mutable reference
     // While a value is mutably borrowed, it cannot be accessed at all.
@@ -329,8 +317,6 @@ fn main() {
     let ref_var2: &mut i32 = &mut var2;
     *ref_var2 += 2; // '*' is used to point to the mutably borrowed var2
 
-    println!("{}", *ref_var2); // 6 , // var2 would not compile.
-                               // ref_var2 is of type &mut i32, so stores a reference to an i32, not the value.
-                               // var2 = 2; // this would not compile because `var2` is borrowed.
-    ref_var2; // no-op, but counts as a use and keeps the borrow active until here
+    println!("{}", *ref_var2);
+    ref_var2; 
 }

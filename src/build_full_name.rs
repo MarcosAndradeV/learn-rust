@@ -12,7 +12,6 @@ fn build_full_name(person: &Person) -> String {
     full_name.push_str(&person.first);
     full_name.push_str(" ");
 
-    // TODO: Implement the part of this function that handles the person's middle name.
     if let Some(middle) = &person.middle {
         full_name.push_str(middle);
         full_name.push_str(" ");
